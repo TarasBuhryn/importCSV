@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @import.title %>
+</p>
+
+<p>
+  <strong>Created Users:</strong>
+  <%= @import.users.count%>
+</p>
+
+<p>
+  <strong>Not Created Users:</strong>
+  <%= @import.inv_users.to_i%>
+</p>
+
+<p>
+  <strong>Import Status:</strong>
+  <%= @import.status%>
+</p>
+
+<p>
+  <strong>Import Created At:</strong>
+  <%= @import.created_at %>
+</p>
+
+<p>
+  <strong>Import Started At:</strong>
+  <% if @import.users.first.present? %>
+  	<%= @import.users.first.created_at %>
+	<% end %>
+</p>
+
+<p>
+  <strong>Import Finished At:</strong>
+  <% if @import.users.first.present? %>
+  	<%= @import.users.last.created_at %>
+  <% end %>
+</p>
+
+<p>
+	<%= link_to 'Users', import_users_path(@import) %>
+</p>
+
+<div>
+<%= button_to "Begin Import", import_import_users_path(@import)%>
+</div>
+
+<p>	
+<%= link_to 'Edit', edit_import_path(@import) %> |
+<%= link_to 'Delete', @import, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', imports_path %>
+</p>
