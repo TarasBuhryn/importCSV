@@ -1,24 +1,22 @@
 <h1>Users</h1>
 
-<table>
-	<thead>
-		<tr>
-			<th>First_Name</th>
-			<th>Last_Name</th>
-			<th>Email</th>
-			<th>Date_of_Birth</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @users.each do |user| %>
-		<tr>
-			<td><%= user.first_name %></td>
-			<td><%= user.last_name %></td>
-			<td><%= user.email %></td>
-			<td><%= user.date_of_birth %></td>
-		</tr>
-		<% end %>
-	</tbody>
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date of Birth</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.date_of_birth %></td>
+    </tr>
+    <% end %>    
+  </tbody>
 </table>

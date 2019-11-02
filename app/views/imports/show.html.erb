@@ -1,50 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @import.title %>
-</p>
+<h1>Current Import</h1>
+<div class="border border-light">
+  <p>
+    <strong>Name:</strong>
+    <%= @import.title %>
+  </p>
 
-<p>
-  <strong>Created Users:</strong>
-  <%= @import.users.count%>
-</p>
+  <p>
+    <strong>Created Users:</strong>
+    <%= @import.users.count%>
+  </p>
 
-<p>
-  <strong>Not Created Users:</strong>
-  <%= @import.inv_users.to_i%>
-</p>
+  <p>
+    <strong>Not Created Users:</strong>
+    <%= @import.inv_users.to_i%>
+  </p>
 
-<p>
-  <strong>Import Status:</strong>
-  <%= @import.status%>
-</p>
+  <p>
+    <strong>Import Status:</strong>
+    <%= @import.status%>
+  </p>
 
-<p>
-  <strong>Import Created At:</strong>
-  <%= @import.created_at %>
-</p>
+  <p>
+    <strong>Import Created At:</strong>
+    <%= @import.created_at %>
+  </p>
 
-<p>
-  <strong>Import Started At:</strong>
-  <% if @import.users.first.present? %>
-  	<%= @import.users.first.created_at %>
-	<% end %>
-</p>
+  <p>
+    <strong>Import Started At:</strong>
+    <% if @import.users.first.present? %>
+    	<%= @import.users.first.created_at %>
+  	<% end %>
+  </p>
 
-<p>
-  <strong>Import Finished At:</strong>
-  <% if @import.users.first.present? %>
-  	<%= @import.users.last.created_at %>
-  <% end %>
-</p>
+  <p>
+    <strong>Import Finished At:</strong>
+    <% if @import.users.first.present? %>
+    	<%= @import.users.last.created_at %>
+    <% end %>
+  </p>
+</div>
 
-<p>
-	<%= link_to 'Users', import_users_path(@import) %>
-</p>
-
-<div>
-<%= button_to "Begin Import", import_import_users_path(@import)%>
+<div class="btns">
+<%= button_to "Begin Import", import_import_users_path(@import), class: 'btn btn-primary'%> 
+<%= link_to 'Users', import_users_path(@import), class: "btn btn-light" %>
 </div>
 
 <p>	

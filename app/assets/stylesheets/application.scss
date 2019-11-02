@@ -1,1 +1,43 @@
 @import "bootstrap";
+
+h1 {
+	text-align: center;
+	font-size: 50px;
+	padding: 20px 0;
+	font-family: sans-serif;
+	color: white;
+}
+
+body {
+  background-image: image-url('bg.jpeg'); 
+}
+
+table {
+	color: white;
+	box-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+form {
+	width: 50%;
+}
+
+label {
+	color: white;
+} 
+
+.form-control-file {
+	color: white;
+}
+
+.border {
+	padding: 30px 20px;
+	color: white;
+	box-shadow: 0 0 10px rgba(255,255,255,0.7);
+	margin: 20px 0;
+}
+
+.btns {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
