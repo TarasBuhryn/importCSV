@@ -8,9 +8,7 @@ class UsersController < ApplicationController
   end
 
   def import
-    current_import = Import.find(params[:import_id])
-    file           = current_import.file
-    User.import(file, current_import)
+    ImportProcessor.new(params[:import_id]).import_csv
     redirect_back(fallback_location: url_for(@import))
   end
 
