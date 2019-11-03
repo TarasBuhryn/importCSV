@@ -7,6 +7,8 @@ class CreateImports < ActiveRecord::Migration[5.2]
       t.string :file
       t.integer :inv_users
       t.string :status
+      t.datetime :started_at
+      t.datetime :completed_at
 
       t.timestamps
     end

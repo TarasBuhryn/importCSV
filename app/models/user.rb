@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validate :validate_age
 
   def self.import(file, current_import)
+    current_import.started_at = Time.now
     inv_users = []
     CSV.foreach(file.path, headers: true) do |row|
       user                     = User.new(row.to_hash)
@@ -23,6 +24,7 @@ class User < ApplicationRecord
       end
       current_import.inv_users = inv_users.count
       current_import.save!
+      current_import.completed_at = Time.now
     end
   end
 

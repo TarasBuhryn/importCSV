@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_225854) do
     t.string "file"
     t.integer "inv_users"
     t.string "status"
+    t.datetime "started_at"
+    t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

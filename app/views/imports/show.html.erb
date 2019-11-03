@@ -29,16 +29,12 @@
 
   <p>
     <strong>Import Started At:</strong>
-    <% if @import.users.first.present? %>
-    	<%= @import.users.first.created_at %>
-  	<% end %>
+    	<%= @import.started_at %>
   </p>
 
   <p>
     <strong>Import Finished At:</strong>
-    <% if @import.users.first.present? %>
-    	<%= @import.users.last.created_at %>
-    <% end %>
+    	<%= @import.completed_at %>
   </p>
 </div>
 
