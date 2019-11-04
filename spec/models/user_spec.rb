@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:import) { FactoryBot.create(:import) }  
+  let!(:import) { FactoryBot.create(:import) }
   let!(:user) { FactoryBot.build(:user, import_id: import.id) }
 
-  
   it 'is valid with valid attributes' do
     expect(user).to be_valid
   end

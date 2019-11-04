@@ -7,7 +7,7 @@ class ImportsController < ApplicationController
     @imports = Import.all
   end
 
-  def show; end  
+  def show; end
 
   def new
     @import = Import.new

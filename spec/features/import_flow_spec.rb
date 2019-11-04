@@ -2,18 +2,12 @@
 
 require 'rails_helper'
 
-feature 'Create, edit, delete import flow' do
+feature 'Create, edit, delete Import flow' do
   let!(:import)  { FactoryBot.build(:import) }
-
-  # before do
-  #   visit root_path
-
-  #   click_on 'Create Import'    
-  # end
 
   context 'create import with valid params' do
     scenario 'adding a new import' do
-      visit root_path 
+      visit root_path
 
       click_on 'Create Import'
 
@@ -26,10 +20,10 @@ feature 'Create, edit, delete import flow' do
     end
   end
 
-  context 'update import with valid params' do
-    let!(:import)  { FactoryBot.create(:import) }
-    scenario 'updating a new blog' do
-      visit import_path(import) 
+  context 'update and delete import with valid params' do
+    let!(:import) { FactoryBot.create(:import) }
+    scenario 'updating a new import' do
+      visit import_path(import)
 
       click_on 'Edit'
 
@@ -40,18 +34,15 @@ feature 'Create, edit, delete import flow' do
 
       expect(page).to have_content import.title
     end
+
+    scenario 'delete import' do
+      visit import_path(import)
+
+      expect(page).to have_content import.title
+
+      click_on 'Delete'
+
+      expect(page).to have_no_content import.title
+    end
   end
-
-    # scenario 'delete a blog', js: true do
-    #   visit blog_path(blog)
-
-    #   expect(page).to have_content blog.title
-
-    #   find(:css, 'i.fa.fa-trash').click
-
-    #   visit blog_path
-
-    #   expect(page).to have_no_content blog.title
-    # end
-  # end
 end

@@ -11,9 +11,9 @@ class User < ApplicationRecord
   private
 
   def validate_age
-    if !date_of_birth.nil?
-      date_of_birth.to_date + 18.years > Date.today ||
+    return if date_of_birth.nil?
+
+    date_of_birth.to_date + 18.years > Date.today &&
       date_of_birth.to_date + 100.years < Date.today
-    end
   end
 end
