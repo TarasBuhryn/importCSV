@@ -5,19 +5,13 @@
 <table class="table table-light">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Show</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <th scope="col">All Imports</th>
     </tr>
   </thead>
   <tbody>
   	<% @imports.each do |import| %>
     <tr>
-      <td><%= import.title %></td>
-      <td><%= link_to 'Show', import %></td>
-      <td><%= link_to 'Edit', edit_import_path(import) %></td>
-      <td><%= link_to 'Delete', import, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to "#{import.title}", import %></td>
     </tr>
     <% end %>    
   </tbody>

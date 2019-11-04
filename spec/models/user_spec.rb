@@ -3,15 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:user) { FactoryBot.build(:user) }
-  let!(:attributes) { %i[first_name last_name email date_of_birth] }
+  let!(:import) { FactoryBot.create(:import) }  
+  let!(:user) { FactoryBot.build(:user, import_id: import.id) }
 
-  it 'has attributes' do
-    expect(allergy).to respond_to(*attributes)
-  end
   
   it 'is valid with valid attributes' do
-    expect(subject).to be_valid
+    expect(user).to be_valid
   end
 
   describe 'Validations' do
