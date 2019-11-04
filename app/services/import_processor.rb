@@ -1,6 +1,7 @@
 class	ImportProcessor
-  def initialize(import_id)
-    @current_import = Import.find(import_id)
+  require 'csv'
+  def initialize(id)
+    @current_import = Import.find(id)
     @file           = @current_import.file
   end
 
@@ -11,14 +12,14 @@ class	ImportProcessor
       user                     = User.new(row.to_hash)
       user.import_id           = @current_import.id
       if user.valid?
-        @current_import.status = 'finished'
         user.save!
       else
         inv_users << user
       end
-      @current_import.inv_users = inv_users.count
-      @current_import.save!
-      @current_import.completed_at = Time.now
     end
+    @current_import.status = 'finished'
+    @current_import.inv_users = inv_users.count
+    @current_import.completed_at = Time.now
+    @current_import.save!
   end
 end

@@ -7,7 +7,7 @@ class ImportsController < ApplicationController
     @imports = Import.all
   end
 
-  def show; end
+  def show; end  
 
   def new
     @import = Import.new
@@ -45,6 +45,15 @@ class ImportsController < ApplicationController
       flash[:error] = 'Failed to delete this import!'
       render :destroy
     end
+  end
+
+  def import
+    ImportProcessor.new(params[:id]).import_csv
+    redirect_back(fallback_location: url_for(@import))
+  end
+
+  def users
+    @users = Import.find(params[:id]).users
   end
 
   private

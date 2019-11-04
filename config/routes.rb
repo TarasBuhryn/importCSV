@@ -2,9 +2,10 @@
 
 Rails.application.routes.draw do
   resources :imports do
-    resources :users do
-      collection { post :import }
-    end
+  	member do
+    post 'import'
+    get 'users'
+  	end
   end
 
   root to: 'imports#index'
