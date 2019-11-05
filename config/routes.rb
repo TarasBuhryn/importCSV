@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   resources :imports do
     member do
-      post 'import'
+      post 'start_import'
       get 'users'
     end
   end

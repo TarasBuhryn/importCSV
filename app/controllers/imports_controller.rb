@@ -47,7 +47,7 @@ class ImportsController < ApplicationController
     end
   end
 
-  def import
+  def start_import
     ImportProcessor.new(params[:id]).import_csv
     redirect_back(fallback_location: url_for(@import))
   end
