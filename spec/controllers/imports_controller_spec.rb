@@ -72,9 +72,10 @@ RSpec.describe ImportsController, type: :controller do
     context ' POST #start_import' do
       let(:import) { FactoryBot.create(:import) }
 
-      it 'redirects to the start_import path' do
+      it 'adds users to current import' do
+        added_users = import.users
         post :start_import, params: { id: import.id }
-        expect(response).to redirect_to(start_import_import_path(import))
+        expect(added_users).not_to be_empty
       end
     end
   end
