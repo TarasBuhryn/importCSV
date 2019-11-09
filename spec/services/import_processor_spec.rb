@@ -13,14 +13,12 @@ describe ImportProcessor do
 
     it 'Create valid users for import' do
       updated_import = Import.find(import.id)
-      user_count     = updated_import.users.count
-      expect(updated_import.users.count).to eq(user_count)
+      expect(updated_import.users.count).to eq(3)
     end
 
     it 'Count invalid users' do
       updated_import = Import.find(import.id)
-      invalid_users  = updated_import.inv_users
-      expect(updated_import.inv_users).to eq(invalid_users)
+      expect(updated_import.inv_users).to eq(2)
     end
 
     it 'Update import status to' do
@@ -30,14 +28,12 @@ describe ImportProcessor do
 
     it 'Create started at time' do
       updated_import = Import.find(import.id)
-      time_started   = updated_import.started_at
-      expect(updated_import.started_at).to eq(time_started)
+      expect(updated_import.started_at).not_to be_nil
     end
 
     it 'Create completed at time' do
       updated_import = Import.find(import.id)
-      time_completed = updated_import.completed_at
-      expect(updated_import.completed_at).to eq(time_completed)
+      expect(updated_import.completed_at).not_to be_nil
     end
   end
 end
